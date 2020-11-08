@@ -9,6 +9,10 @@ A simple to use Team Weapon Editor for Worms 4 Mayhem
 Unusable (Loads Local.xml from D:\Local.xml and saves changes to D:\NewLocal.xml for testing)
 
 ## Preview
-![Preview](/Repository/RepoScreenshot.png?raw=true)
+<p align="center">
+  <img width="802" height="482" src="https://github.com/Dawid8plc/TWepED/blob/master/Repository/RepoScreenshot.png?raw=true">
+</p>
+
+# 
 
 ###### Logo font: Revamped by Chequered Ink
