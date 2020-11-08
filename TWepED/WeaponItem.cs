@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TWepED.Properties;
 
 namespace TWepED
 {
@@ -18,10 +19,27 @@ namespace TWepED
         {
             InitializeComponent();
 
-            label1.Text = wep.Name;
+            weaponNameLabel.Text = wep.Name;
             ID = id;
 
             curWeapon = wep;
+
+            if (curWeapon.Type == WeaponType.Bazooka)
+            {
+                weaponTypePicture.Image = Resources.bazooka;
+            }
+            else if (curWeapon.Type == WeaponType.Grenade)
+            {
+                weaponTypePicture.Image = Resources.grenade;
+            }
+            else if (curWeapon.Type == WeaponType.Airstrike)
+            {
+                weaponTypePicture.Image = Resources.airstrike;
+            }
+            else
+            {
+                weaponTypePicture.Image = Resources.unknown;
+            }
         }
 
         private void WeaponItem_Load(object sender, EventArgs e)

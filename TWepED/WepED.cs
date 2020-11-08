@@ -37,19 +37,19 @@ namespace TWepED
                 }
                 prop.label1.Text = item.Name;
 
-                flowLayoutPanel1.Controls.Add(prop);
+                weaponPropsPanel.Controls.Add(prop);
             }
 
             Text = "TWepED - " + curWeapon.Name;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
+            for (int i = 0; i < weaponPropsPanel.Controls.Count; i++)
             {
-                Property prop = (Property)flowLayoutPanel1.Controls[i];
+                Property prop = (Property)weaponPropsPanel.Controls[i];
 
-                if(prop.label1.Text == "Name")
+                if (prop.label1.Text == "Name")
                 {
                     curWeapon.nameNode.FirstChild.InnerText = prop.textBox1.Text;
                     continue;
@@ -62,7 +62,7 @@ namespace TWepED
             Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void discardButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();

@@ -28,46 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.bazookaTypeImage = new System.Windows.Forms.PictureBox();
+            this.grenadeTypeImage = new System.Windows.Forms.PictureBox();
+            this.airstrikeTypeImage = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bazookaTypeImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grenadeTypeImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airstrikeTypeImage)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // bazookaTypeImage
             // 
-            this.pictureBox1.Image = global::TWepED.Properties.Resources.bazooka;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 61);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.bazookaTypeImage.Image = global::TWepED.Properties.Resources.bazooka;
+            this.bazookaTypeImage.Location = new System.Drawing.Point(13, 61);
+            this.bazookaTypeImage.Name = "bazookaTypeImage";
+            this.bazookaTypeImage.Size = new System.Drawing.Size(128, 128);
+            this.bazookaTypeImage.TabIndex = 0;
+            this.bazookaTypeImage.TabStop = false;
+            this.bazookaTypeImage.Click += new System.EventHandler(this.bazookaTypeImage_Click);
             // 
-            // pictureBox2
+            // grenadeTypeImage
             // 
-            this.pictureBox2.Image = global::TWepED.Properties.Resources.grenade;
-            this.pictureBox2.Location = new System.Drawing.Point(154, 61);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.grenadeTypeImage.Image = global::TWepED.Properties.Resources.grenade;
+            this.grenadeTypeImage.Location = new System.Drawing.Point(154, 61);
+            this.grenadeTypeImage.Name = "grenadeTypeImage";
+            this.grenadeTypeImage.Size = new System.Drawing.Size(128, 128);
+            this.grenadeTypeImage.TabIndex = 1;
+            this.grenadeTypeImage.TabStop = false;
+            this.grenadeTypeImage.Click += new System.EventHandler(this.grenadeTypeImage_Click);
             // 
-            // pictureBox3
+            // airstrikeTypeImage
             // 
-            this.pictureBox3.Image = global::TWepED.Properties.Resources.airstrike;
-            this.pictureBox3.Location = new System.Drawing.Point(294, 61);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.airstrikeTypeImage.Image = global::TWepED.Properties.Resources.airstrike;
+            this.airstrikeTypeImage.Location = new System.Drawing.Point(294, 61);
+            this.airstrikeTypeImage.Name = "airstrikeTypeImage";
+            this.airstrikeTypeImage.Size = new System.Drawing.Size(128, 128);
+            this.airstrikeTypeImage.TabIndex = 2;
+            this.airstrikeTypeImage.TabStop = false;
+            this.airstrikeTypeImage.Click += new System.EventHandler(this.airstrikeTypeImage_Click);
             // 
             // panel1
             // 
@@ -93,18 +93,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 208);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.airstrikeTypeImage);
+            this.Controls.Add(this.grenadeTypeImage);
+            this.Controls.Add(this.bazookaTypeImage);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "WeaponTypeSelect";
             this.Text = "Create a new Weapon";
-            this.Load += new System.EventHandler(this.WeaponTypeSelect_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bazookaTypeImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grenadeTypeImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.airstrikeTypeImage)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -113,9 +112,9 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox bazookaTypeImage;
+        private System.Windows.Forms.PictureBox grenadeTypeImage;
+        private System.Windows.Forms.PictureBox airstrikeTypeImage;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
     }

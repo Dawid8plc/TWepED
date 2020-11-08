@@ -28,113 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.newWeaponButton = new System.Windows.Forms.Button();
+            this.editWeaponButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.bottomPanel = new System.Windows.Forms.Panel();
+            this.removeWeaponButton = new System.Windows.Forms.Button();
+            this.weaponItemPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.bottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // newWeaponButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.newWeaponButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(312, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Create Weapon";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.newWeaponButton.Location = new System.Drawing.Point(312, 9);
+            this.newWeaponButton.Name = "newWeaponButton";
+            this.newWeaponButton.Size = new System.Drawing.Size(127, 23);
+            this.newWeaponButton.TabIndex = 1;
+            this.newWeaponButton.Text = "Create Weapon";
+            this.newWeaponButton.UseVisualStyleBackColor = true;
+            this.newWeaponButton.Click += new System.EventHandler(this.newWeaponButton_Click);
             // 
-            // button2
+            // editWeaponButton
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.editWeaponButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(578, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Edit Weapon";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.editWeaponButton.Location = new System.Drawing.Point(578, 9);
+            this.editWeaponButton.Name = "editWeaponButton";
+            this.editWeaponButton.Size = new System.Drawing.Size(127, 23);
+            this.editWeaponButton.TabIndex = 2;
+            this.editWeaponButton.Text = "Edit Weapon";
+            this.editWeaponButton.UseVisualStyleBackColor = true;
+            this.editWeaponButton.Click += new System.EventHandler(this.editWeaponButton_Click);
             // 
-            // button3
+            // saveButton
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(713, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.saveButton.Location = new System.Drawing.Point(713, 9);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 3;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // panel1
+            // bottomPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 407);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 43);
-            this.panel1.TabIndex = 4;
+            this.bottomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.bottomPanel.Controls.Add(this.removeWeaponButton);
+            this.bottomPanel.Controls.Add(this.newWeaponButton);
+            this.bottomPanel.Controls.Add(this.saveButton);
+            this.bottomPanel.Controls.Add(this.editWeaponButton);
+            this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bottomPanel.Location = new System.Drawing.Point(0, 407);
+            this.bottomPanel.Name = "bottomPanel";
+            this.bottomPanel.Size = new System.Drawing.Size(800, 43);
+            this.bottomPanel.TabIndex = 4;
             // 
-            // flowLayoutPanel1
+            // removeWeaponButton
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 407);
-            this.flowLayoutPanel1.TabIndex = 5;
-            this.flowLayoutPanel1.WrapContents = false;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.removeWeaponButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(445, 9);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(127, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Remove Weapon";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.removeWeaponButton.Location = new System.Drawing.Point(445, 9);
+            this.removeWeaponButton.Name = "removeWeaponButton";
+            this.removeWeaponButton.Size = new System.Drawing.Size(127, 23);
+            this.removeWeaponButton.TabIndex = 4;
+            this.removeWeaponButton.Text = "Remove Weapon";
+            this.removeWeaponButton.UseVisualStyleBackColor = true;
+            this.removeWeaponButton.Click += new System.EventHandler(this.removeWeaponButton_Click);
+            // 
+            // weaponItemPanel
+            // 
+            this.weaponItemPanel.AutoScroll = true;
+            this.weaponItemPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.weaponItemPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.weaponItemPanel.Location = new System.Drawing.Point(0, 0);
+            this.weaponItemPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.weaponItemPanel.Name = "weaponItemPanel";
+            this.weaponItemPanel.Size = new System.Drawing.Size(800, 407);
+            this.weaponItemPanel.TabIndex = 5;
+            this.weaponItemPanel.WrapContents = false;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.weaponItemPanel);
+            this.Controls.Add(this.bottomPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "TWepED";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
+            this.bottomPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button newWeaponButton;
+        private System.Windows.Forms.Button editWeaponButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Panel bottomPanel;
+        private System.Windows.Forms.FlowLayoutPanel weaponItemPanel;
+        private System.Windows.Forms.Button removeWeaponButton;
     }
 }
 

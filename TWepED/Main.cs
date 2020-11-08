@@ -16,58 +16,45 @@ namespace TWepED
 {
     public partial class Main : Form
     {
-        //XmlDocument data = new XmlDocument();
-
         LocalWeaponHelper weaponhelper;
         int selectedItem = -1;
         public Main()
         {
             InitializeComponent();
 
+            //Enable double buffering on the panel to prevent flickering while refreshing view
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
             | BindingFlags.Instance | BindingFlags.NonPublic, null,
-            flowLayoutPanel1, new object[] { true });
+            weaponItemPanel, new object[] { true });
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Initialize the LocalWeaponHelper
             weaponhelper = new LocalWeaponHelper(@"D:\Local.xml");
 
-            flowLayoutPanel1.HorizontalScroll.Visible = false;
-
+            //Refreshes the weaponItemPanel
             refreshView();
         }
 
         public void refreshView()
         {
-            //listBox1.Items.Clear();
-            flowLayoutPanel1.Controls.Clear();
+            //Clears the weaponItemPanel
+            weaponItemPanel.Controls.Clear();
 
+            //Gets the list of the weapons
             List<Weapon> weps = weaponhelper.getFriendlyWeapons();
 
+            //Creates a WeaponItem for every custom weapon, and adds it to the weaponItemPanel
             for (int i = 0; i < weps.Count; i++)
             {
                 Weapon item = weps[i];
                 var itemui = new WeaponItem(item, i);
-                itemui.Click += Itemui_Click;
-                itemui.label1.Click += Subitemui_Click;
-                itemui.pictureBox1.Click += Subitemui_Click;
 
-                if(item.Type == WeaponType.Bazooka)
-                {
-                    itemui.pictureBox1.Image = Resources.bazooka;
-                }else if(item.Type == WeaponType.Grenade)
-                {
-                    itemui.pictureBox1.Image = Resources.grenade;
-                }
-                else if(item.Type == WeaponType.Airstrike)
-                {
-                    itemui.pictureBox1.Image = Resources.airstrike;
-                }
-                else
-                {
-                    itemui.pictureBox1.Image = Resources.unknown;
-                }
+                //Events that trigger when you click on the weaponItem, that will change the selectedItem variable
+                itemui.Click += Itemui_Click;
+                itemui.weaponNameLabel.Click += Subitemui_Click;
+                itemui.weaponTypePicture.Click += Subitemui_Click;
 
                 if(weps.Count > 5)
                 {
@@ -97,7 +84,7 @@ namespace TWepED
                     }
                 }
 
-                flowLayoutPanel1.Controls.Add(itemui);
+                weaponItemPanel.Controls.Add(itemui);
             }
         }
 
@@ -107,15 +94,15 @@ namespace TWepED
 
             int ID = ((sender as Control).Parent as WeaponItem).ID;
 
-            for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
+            for (int i = 0; i < weaponItemPanel.Controls.Count; i++)
             {
                 if ((i + 1) % 2 != 0)
                 {
-                    flowLayoutPanel1.Controls[i].BackColor = Color.FromArgb(209, 209, 209);
+                    weaponItemPanel.Controls[i].BackColor = Color.FromArgb(209, 209, 209);
                 }
                 else
                 {
-                    flowLayoutPanel1.Controls[i].BackColor = Color.FromArgb(176, 176, 176);
+                    weaponItemPanel.Controls[i].BackColor = Color.FromArgb(176, 176, 176);
                 }
             }
 
@@ -135,15 +122,15 @@ namespace TWepED
 
             int ID = (sender as WeaponItem).ID;
 
-            for (int i = 0; i < flowLayoutPanel1.Controls.Count; i++)
+            for (int i = 0; i < weaponItemPanel.Controls.Count; i++)
             {
                 if ((i + 1) % 2 != 0)
                 {
-                    (flowLayoutPanel1.Controls[i] as WeaponItem).BackColor = Color.FromArgb(209, 209, 209);
+                    (weaponItemPanel.Controls[i] as WeaponItem).BackColor = Color.FromArgb(209, 209, 209);
                 }
                 else
                 {
-                    (flowLayoutPanel1.Controls[i] as WeaponItem).BackColor = Color.FromArgb(176, 176, 176);
+                    (weaponItemPanel.Controls[i] as WeaponItem).BackColor = Color.FromArgb(176, 176, 176);
                 }
             }
 
@@ -157,49 +144,56 @@ namespace TWepED
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void newWeaponButton_Click(object sender, EventArgs e)
         {
+            //Creates a new instance of the WeaponTypeSelect dialog, that allows you to select the type of the weapon you want to create
             WeaponTypeSelect dialog = new WeaponTypeSelect();
 
             dialog.ShowDialog();
 
             if (dialog.selectedType == WeaponType.Unknown) return;
 
+            //Create a new weapon based on the selected weapon type
             weaponhelper.addNewWeapon(dialog.selectedType);
 
             refreshView();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void removeWeaponButton_Click(object sender, EventArgs e)
         {
             if (selectedItem == -1)
             {
                 return;
             }
 
-            WepED ed = new WepED(weaponhelper.getFriendlyWeapons()[selectedItem]);
-            ed.ShowDialog();
+            //Gets the weapon from the selected weaponItem and removes it
+            var weapon = (weaponItemPanel.Controls[selectedItem] as WeaponItem);
+
+            weaponhelper.removeWeapon(weapon.curWeapon, weapon.ID);
 
             refreshView();
-
-            weaponhelper.Save();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            weaponhelper.Save();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void editWeaponButton_Click(object sender, EventArgs e)
         {
             if (selectedItem == -1)
             {
                 return;
             }
-            var h = (flowLayoutPanel1.Controls[selectedItem] as WeaponItem);
-            weaponhelper.removeWeapon(h.curWeapon, h.ID);
+
+            //Creates a new instance of the WepED (Weapon Editor) dialog and passes the selected weapon to it
+            WepED editor = new WepED(weaponhelper.getFriendlyWeapons()[selectedItem]);
+            editor.ShowDialog();
 
             refreshView();
+
+            weaponhelper.Save();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //Saves all the changes to the Local.xml file
+            weaponhelper.Save();
         }
     }
 }
