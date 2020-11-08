@@ -18,7 +18,9 @@ namespace TWepED
     {
         LocalWeaponHelper weaponhelper;
         int selectedItemIndex = -1;
-        public Main()
+
+        string gamePath;
+        public Main(string filename)
         {
             InitializeComponent();
 
@@ -26,14 +28,14 @@ namespace TWepED
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty
             | BindingFlags.Instance | BindingFlags.NonPublic, null,
             weaponItemPanel, new object[] { true });
-        }
 
-        BindingList<Weapon> h = new BindingList<Weapon>();
+            gamePath = filename;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //Initialize the LocalWeaponHelper
-            weaponhelper = new LocalWeaponHelper(@"D:\Local.xml");
+            weaponhelper = new LocalWeaponHelper(gamePath + @"\data\Tweak\Local.xml");
 
             //Refreshes the weaponItemPanel
             refreshView();
