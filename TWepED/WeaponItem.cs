@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TWepED.Properties;
+using System.Diagnostics.Contracts;
 
 namespace TWepED
 {
@@ -15,6 +16,8 @@ namespace TWepED
     {
         public Weapon curWeapon;
         public int ID;
+
+        public WeaponItem() { }
         public WeaponItem(Weapon wep, int id)
         {
             InitializeComponent();

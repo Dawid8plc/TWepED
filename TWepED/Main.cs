@@ -17,7 +17,7 @@ namespace TWepED
     public partial class Main : Form
     {
         LocalWeaponHelper weaponhelper;
-        int selectedItem = -1;
+        int selectedItemIndex = -1;
         public Main()
         {
             InitializeComponent();
@@ -27,6 +27,8 @@ namespace TWepED
             | BindingFlags.Instance | BindingFlags.NonPublic, null,
             weaponItemPanel, new object[] { true });
         }
+
+        BindingList<Weapon> h = new BindingList<Weapon>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -43,25 +45,25 @@ namespace TWepED
             weaponItemPanel.Controls.Clear();
 
             //Gets the list of the weapons
-            List<Weapon> weps = weaponhelper.getFriendlyWeapons();
+            List<Weapon> weapons = weaponhelper.getFriendlyWeapons();
 
             //Creates a WeaponItem for every custom weapon, and adds it to the weaponItemPanel
-            for (int i = 0; i < weps.Count; i++)
+            for (int i = 0; i < weapons.Count; i++)
             {
-                Weapon item = weps[i];
+                Weapon item = weapons[i];
                 var itemui = new WeaponItem(item, i);
 
-                //Events that trigger when you click on the weaponItem, that will change the selectedItem variable
+                //Events that trigger when you click on the weaponItem, that will change the selectedItemIndex variable
                 itemui.Click += Itemui_Click;
                 itemui.weaponNameLabel.Click += Subitemui_Click;
                 itemui.weaponTypePicture.Click += Subitemui_Click;
 
-                if(weps.Count > 5)
+                if(weapons.Count > 5)
                 {
                     itemui.Width = 783;
                 }
 
-                if(i == selectedItem)
+                if(i == selectedItemIndex)
                 {
                     if((i + 1) % 2 != 0)
                     {
@@ -90,9 +92,10 @@ namespace TWepED
 
         private void Subitemui_Click(object sender, EventArgs e)
         {
-            selectedItem = ((sender as Control).Parent as WeaponItem).ID;
+            WeaponItem item = (sender as Control).Parent as WeaponItem;
+            selectedItemIndex = item.ID;
 
-            int ID = ((sender as Control).Parent as WeaponItem).ID;
+            int ID = item.ID;
 
             for (int i = 0; i < weaponItemPanel.Controls.Count; i++)
             {
@@ -118,9 +121,10 @@ namespace TWepED
 
         private void Itemui_Click(object sender, EventArgs e)
         {
-            selectedItem = (sender as WeaponItem).ID;
+            WeaponItem item = (sender as WeaponItem);
+            selectedItemIndex = item.ID;
 
-            int ID = (sender as WeaponItem).ID;
+            int ID = item.ID;
 
             for (int i = 0; i < weaponItemPanel.Controls.Count; i++)
             {
@@ -161,13 +165,13 @@ namespace TWepED
 
         private void removeWeaponButton_Click(object sender, EventArgs e)
         {
-            if (selectedItem == -1)
+            if (selectedItemIndex == -1)
             {
                 return;
             }
 
             //Gets the weapon from the selected weaponItem and removes it
-            var weapon = (weaponItemPanel.Controls[selectedItem] as WeaponItem);
+            var weapon = (weaponItemPanel.Controls[selectedItemIndex] as WeaponItem);
 
             weaponhelper.removeWeapon(weapon.curWeapon, weapon.ID);
 
@@ -176,13 +180,13 @@ namespace TWepED
 
         private void editWeaponButton_Click(object sender, EventArgs e)
         {
-            if (selectedItem == -1)
+            if (selectedItemIndex == -1)
             {
                 return;
             }
 
             //Creates a new instance of the WepED (Weapon Editor) dialog and passes the selected weapon to it
-            WepED editor = new WepED(weaponhelper.getFriendlyWeapons()[selectedItem]);
+            WepED editor = new WepED(weaponhelper.getFriendlyWeapons()[selectedItemIndex]);
             editor.ShowDialog();
 
             refreshView();
