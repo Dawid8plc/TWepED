@@ -17,6 +17,10 @@ namespace TWepED
 
         public int nextSafeID;
 
+        Random random = new Random();
+
+        List<string> weaponNames = new List<string>() { "Amazing", "Deadly", "Scary", "Epic", "Legendary", "Unusual", "Weird" };
+
         public LocalWeaponHelper(string path)
         {
             //Loads the desired Local.xml file
@@ -271,7 +275,7 @@ namespace TWepED
             XmlAttribute stringdetailid = data.CreateAttribute("id");
             stringdetailid.Value = "Text.cWeapon-" + nextSafeID;
 
-            stringDetailsNode.InnerXml = @"<Value>My Great Weapon</Value><Name>Text.cWeapon-" + nextSafeID + "</Name><Flags>64</Flags>";
+            stringDetailsNode.InnerXml = @"<Value>My " +  randomName() + " Weapon</Value><Name>Text.cWeapon-" + nextSafeID + "</Name><Flags>64</Flags>";
 
             stringDetailsNode.Attributes.Append(stringdetailid);
 
@@ -280,6 +284,11 @@ namespace TWepED
             nextSafeID += 3;
 
             Save();
+        }
+
+        public string randomName()
+        {
+            return weaponNames[random.Next(weaponNames.Count)];
         }
     }
 }

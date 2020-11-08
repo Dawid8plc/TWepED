@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeaponTypeSelect));
             this.bazookaTypeImage = new System.Windows.Forms.PictureBox();
             this.grenadeTypeImage = new System.Windows.Forms.PictureBox();
             this.airstrikeTypeImage = new System.Windows.Forms.PictureBox();
@@ -98,6 +99,7 @@
             this.Controls.Add(this.bazookaTypeImage);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "WeaponTypeSelect";
             this.Text = "Create a new Weapon";
