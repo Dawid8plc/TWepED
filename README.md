@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="512" height="256" src="https://i.imgur.com/UcMA4Jn.png">
+  <img width="512" height="240" src="https://github.com/Dawid8plc/TWepED/blob/master/Repository/Logo.png?raw=true">
 </p>
 
 # 
